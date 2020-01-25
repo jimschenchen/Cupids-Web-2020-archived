@@ -10,13 +10,13 @@
                 <div class="question-wrap">
                     <div id="question">Quesion #{{this.currentQuestions.id}}:</div>
                     <div>{{this.currentQuestions.content}}</div>
-                    <div class="button-wrap">
+                </div>
+                <div class="button-wrap">
                         <el-button-group>
                             <el-button class="button" type="primary" icon="el-icon-arrow-left" @click="submitQuestion(1)">{{this.currentQuestions.btn1}}</el-button>
                             <el-button class="button" type="primary" @click="submitQuestion(2)">{{this.currentQuestions.btn2}}<i class="el-icon-arrow-right el-icon-right"></i></el-button>
                         </el-button-group>
                     </div>
-                </div>
             </el-card>
         </div>
     </div>  
@@ -91,17 +91,46 @@ h1 {
 }
 #survey {
     // height: 100vh;
-    background-color: #344a5f;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    // background-color: #344a5f;
     position:absolute;
     top:0px;
     left:0px;
     width:100%;
     height:100%;
 }
-.survey-wrap {
-    width: 330px;
-    margin: auto;
+
+@media only screen and (max-width: 1024px) {
+    .survey-wrap, .box-card{
+        width: 80vw;
+        margin: auto;
+    }
+    // button
+    .button {
+        width: 30vw;
+        margin: auto;
+    }
+    .button-wrap {
+        width: 60vw;
+        margin: auto;
+    }
 }
+@media only screen and (min-width: 1024px) {
+    .survey-wrap, .box-card{
+        width: 40vw;
+        margin: auto;
+    }
+    // button
+    .button {
+        width: 15vw;
+        margin: auto;
+    }
+    .button-wrap {
+        width: 30vw;
+        margin: auto;
+    }
+}
+
 .question-wrap {
     line-height: 100px;
     border-radius: 4px;
@@ -109,30 +138,5 @@ h1 {
     margin-bottom: 20px;
 }
 
-.button {
-    width: 150px;
-}
-// button
-.button-wrap {
-    width: 300px;
-    margin: auto;
-}
 
-.text {
-    font-size: 14px;
-  }
-  .item {
-    margin-bottom: 18px;
-  }
-  .clearfix:before,
-  .clearfix:after {
-    display: table;
-    content: "";
-  }
-  .clearfix:after {
-    clear: both
-  }
-  .box-card {
-    width: 480px;
-  }
 </style>
