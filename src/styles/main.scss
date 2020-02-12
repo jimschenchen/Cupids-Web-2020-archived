@@ -1,1 +1,7 @@
+$primary-color: #2e5bec;
+$dark-color: #3e396b;
+
 @import "./normalize.scss";
+@import "node_modules/spectre.css/src/spectre";
+@import "node_modules/spectre.css/src/spectre-exp";
+@import "node_modules/spectre.css/src/spectre-icons";
