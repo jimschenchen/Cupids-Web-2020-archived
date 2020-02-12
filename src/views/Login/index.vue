@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 #login {
-    // height: 100vh;
+    height: 100vh;
     background-color: #344a5f;
     position:absolute;
     top:0px;
