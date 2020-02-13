@@ -12,9 +12,11 @@
                 <a href="#" class="btn btn-link">Twitter</a>
                 <a href="#" class="btn btn-link">GitHub</a>
             </section>
-            <carousel></carousel>
         </header>
-        
+        <div class="car-wrap">
+            <carousel></carousel>
+        </div>
+        <div class="bg"></div>
     </div>
 </template>
 
