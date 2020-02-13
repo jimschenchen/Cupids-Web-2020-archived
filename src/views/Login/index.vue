@@ -5,26 +5,45 @@
                 <li v-for="item in menuTab" :key="item.id" :class="{'current':item.current}" @click="toggleMenu(item)">{{item.txt}}</li>
             </ul>
 
-            <form>
+            <form v-if="menuTab[0].current">
                 <div class="form-group" :class="this.form.mail.error">
                     <label class="form-label">邮箱</label>
                     <input class="form-input" type="text" placeholder="邮箱" v-model="form.mail.content">
                     <p class="form-input-hint">{{form.mail.hint}}</p>
                 </div>
-
                 <div class="form-group" :class="this.form.pass.error">
                     <label class="form-label">密码</label>
                     <input class="form-input" type="text" placeholder="密码" v-model="form.pass.content">
                     <p class="form-input-hint">{{form.pass.hint}}</p>
                 </div>
-
                 <button class="btn btn-primary" @click="submit">登录</button>
             </form>
+
+            <form v-if="menuTab[1].current">
+                <div class="form-group" :class="this.form.mail.error">
+                    <label class="form-label">邮箱</label>
+                    <input class="form-input" type="text" placeholder="邮箱" v-model="form.mail.content">
+                    <p class="form-input-hint">{{form.mail.hint}}</p>
+                </div>
+                <div class="form-group" :class="this.form.pass.error">
+                    <label class="form-label">密码</label>
+                    <input class="form-input" type="text" placeholder="密码" v-model="form.pass.content">
+                    <p class="form-input-hint">{{form.pass.hint}}</p>
+                </div>
+                <div class="form-group" :class="this.form.pass.error">
+                    <label class="form-label">再次输入密码</label>
+                    <input class="form-input" type="text" placeholder="密码" v-model="form.pass.content">
+                    <p class="form-input-hint">{{form.pass.hint}}</p>
+                </div>
+                <button class="btn btn-primary" @click="submit">登录</button>
+            </form>
+
         </div>
     </div>
 </template>
 
 <script>
+import { Login } from "@/api/login"
 export default {
     name: "login",
     data() {
@@ -72,6 +91,8 @@ export default {
                 this.form.pass.hint = '密码正确！';
                 this.form.pass.error = 'has-success';
             }
+
+            Login()
         }
     }
 }
@@ -81,7 +102,7 @@ export default {
 <style lang="scss" scoped>
 #login {
     height: 100vh;
-    background-color: #344a5f;
+    background-color: #ff7979;
     position:absolute;
     top:0px;
     left:0px;
