@@ -147,6 +147,7 @@ export default {
     width: 330px;
     margin: auto;
 }
+
 .menu-tab {
     text-align: center;
     li {
@@ -159,12 +160,12 @@ export default {
         cursor: pointer;
     }
 }
+
 .current {
     background-color: rgba(0, 0, 0, .1)
 }
 
-.btn 
-{
+.btn {
     width: 100%;
 }
 </style>

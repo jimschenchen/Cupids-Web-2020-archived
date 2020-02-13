@@ -5,3 +5,7 @@ $dark-color: #232323;
 @import "node_modules/spectre.css/src/spectre";
 @import "node_modules/spectre.css/src/spectre-exp";
 @import "node_modules/spectre.css/src/spectre-icons";
+
+*{
+    box-sizing: border-box;
+}
