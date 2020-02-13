@@ -1,42 +1,48 @@
 <template>
-    <div id="login">
-        <div class="login-wrap">
-            <ul class="menu-tab">
-                <li v-for="item in menuTab" :key="item.id" :class="{'current':item.current}" @click="toggleMenu(item)">{{item.txt}}</li>
-            </ul>
+    <div>
+        <div class="bg"></div>
+        <div class="container">
+            <div class="columns">
+                <div class="column col-12">
+                    <ul class="menu-tab">
+                        <li v-for="item in menuTab" :key="item.id" :class="{'current':item.current}" @click="toggleMenu(item)">{{item.txt}}</li>
+                    </ul>
+                </div>
+                <div class="column col-12">
+                    <form v-if="menuTab[0].current">
+                        <div class="form-group" :class="this.form.mail.error">
+                            <label class="form-label">邮箱</label>
+                            <input class="form-input" type="text" placeholder="邮箱" v-model="form.mail.content">
+                            <p class="form-input-hint">{{form.mail.hint}}</p>
+                        </div>
+                        <div class="form-group" :class="this.form.pass.error">
+                            <label class="form-label">密码</label>
+                            <input class="form-input" type="password" placeholder="密码" v-model="form.pass.content">
+                            <p class="form-input-hint">{{form.pass.hint}}</p>
+                        </div>
+                        <button class="btn btn-primary" @click="submit">登录</button>
+                    </form>
 
-            <form v-if="menuTab[0].current">
-                <div class="form-group" :class="this.form.mail.error">
-                    <label class="form-label">邮箱</label>
-                    <input class="form-input" type="text" placeholder="邮箱" v-model="form.mail.content">
-                    <p class="form-input-hint">{{form.mail.hint}}</p>
+                    <form v-if="menuTab[1].current">
+                        <div class="form-group" :class="this.form.mail.error">
+                            <label class="form-label">邮箱</label>
+                            <input class="form-input" type="text" placeholder="邮箱" v-model="form.mail.content">
+                            <p class="form-input-hint">{{form.mail.hint}}</p>
+                        </div>
+                        <div class="form-group" :class="this.form.pass.error">
+                            <label class="form-label">密码</label>
+                            <input class="form-input" type="password" placeholder="密码" v-model="form.pass.content">
+                            <p class="form-input-hint">{{form.pass.hint}}</p>
+                        </div>
+                        <div class="form-group" :class="this.form.pass2.error">
+                            <label class="form-label">再次输入密码</label>
+                            <input class="form-input" type="password" placeholder="密码" v-model="form.pass2.content">
+                            <p class="form-input-hint">{{form.pass2.hint}}</p>
+                        </div>
+                        <button class="btn btn-primary" @click="submit">登录</button>
+                    </form>
                 </div>
-                <div class="form-group" :class="this.form.pass.error">
-                    <label class="form-label">密码</label>
-                    <input class="form-input" type="password" placeholder="密码" v-model="form.pass.content">
-                    <p class="form-input-hint">{{form.pass.hint}}</p>
-                </div>
-                <button class="btn btn-primary" @click="submit">登录</button>
-            </form>
-
-            <form v-if="menuTab[1].current">
-                <div class="form-group" :class="this.form.mail.error">
-                    <label class="form-label">邮箱</label>
-                    <input class="form-input" type="text" placeholder="邮箱" v-model="form.mail.content">
-                    <p class="form-input-hint">{{form.mail.hint}}</p>
-                </div>
-                <div class="form-group" :class="this.form.pass.error">
-                    <label class="form-label">密码</label>
-                    <input class="form-input" type="password" placeholder="密码" v-model="form.pass.content">
-                    <p class="form-input-hint">{{form.pass.hint}}</p>
-                </div>
-                <div class="form-group" :class="this.form.pass2.error">
-                    <label class="form-label">再次输入密码</label>
-                    <input class="form-input" type="password" placeholder="密码" v-model="form.pass2.content">
-                    <p class="form-input-hint">{{form.pass2.hint}}</p>
-                </div>
-                <button class="btn btn-primary" @click="submit">登录</button>
-            </form>
+            </div>
 
         </div>
     </div>
@@ -124,20 +130,22 @@ export default {
 
 
 <style lang="scss" scoped>
-#login {
-    height: 100vh;
-    // background-color: #ff7979;
+
+.bg{
+    position: fixed;
+    background-image: radial-gradient( circle farthest-corner at -1.7% -2.7%,  rgba(250,138,138,1) 0%, rgba(198,124,204,1) 90% );
     background: url("../../assets/bg.jpg");
-    position: absolute;
-    top:0px;
-    left:0px;
-    width:100%;
-    height:100%;
+    background-size: cover;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -99999;
 }
 
 .login-wrap {
     width: 330px;
-    margin:auto;
+    margin: auto;
 }
 .menu-tab {
     text-align: center;
