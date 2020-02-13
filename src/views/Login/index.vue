@@ -127,7 +127,7 @@ export default {
 #login {
     height: 100vh;
     // background-color: #ff7979;
-    // background: url("@/assets/bg.jpg");
+    background: url("../../assets/bg.jpg");
     position: absolute;
     top:0px;
     left:0px;
