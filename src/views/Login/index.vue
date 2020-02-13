@@ -126,13 +126,15 @@ export default {
 <style lang="scss" scoped>
 #login {
     height: 100vh;
-    background-color: #ff7979;
-    position:absolute;
+    // background-color: #ff7979;
+    // background: url("@/assets/bg.jpg");
+    position: absolute;
     top:0px;
     left:0px;
     width:100%;
     height:100%;
 }
+
 .login-wrap {
     width: 330px;
     margin:auto;
@@ -144,7 +146,7 @@ export default {
         width: 88px;
         line-height: 36px;
         font-size: 14px;
-        color: #fff;
+        // color: #fff;
         border-radius: 2px;
         cursor: pointer;
     }
