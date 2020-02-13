@@ -1,12 +1,19 @@
-$primary-color: #fc80a9;
-$dark-color: #232323;
-
+$primary-color: #eb6d82;
+$gray-color: #aaaaaa;
+$dark-color: #fff;
+$light-color: #000;
 
 @import "./normalize.scss";
 @import "node_modules/spectre.css/src/spectre";
 @import "node_modules/spectre.css/src/spectre-exp";
 @import "node_modules/spectre.css/src/spectre-icons";
 
-*{
+div{
     box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+.container{
+    width: 330px;
+    margin: auto;
 }

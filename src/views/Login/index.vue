@@ -3,10 +3,11 @@
         <div class="bg"></div>
         <div class="container">
             <div class="columns">
+                <div class="column col-12 flower"></div>
                 <div class="column col-12">
-                    <ul class="menu-tab">
-                        <li v-for="item in menuTab" :key="item.id" :class="{'current':item.current}" @click="toggleMenu(item)">{{item.txt}}</li>
-                    </ul>
+                    <div class="btn-group btn-group-block">
+                        <button class="btn" :class="{active: item.current}" v-for="item in menuTab" :key="item.id" @click="toggleMenu(item)">{{item.txt}}</button>
+                    </div> 
                 </div>
                 <div class="column col-12">
                     <form v-if="menuTab[0].current">
@@ -55,8 +56,8 @@ export default {
     data() {
         return {
             menuTab: [
-                { txt: "login", current: true},
-                { txt: "register", current: false},
+                { txt: "登录", current: true},
+                { txt: "注册", current: false},
             ], 
             form: {
                 mail: {content: '', error: '', hint: ''},
@@ -133,9 +134,7 @@ export default {
 
 .bg{
     position: fixed;
-    background-image: radial-gradient( circle farthest-corner at -1.7% -2.7%,  rgba(250,138,138,1) 0%, rgba(198,124,204,1) 90% );
-    background: url("../../assets/bg.jpg");
-    background-size: cover;
+    background: #000;
     top: 0px;
     left: 0px;
     height: 100%;
@@ -167,5 +166,15 @@ export default {
 
 .btn {
     width: 100%;
+}
+
+.flower{
+    height: 200px;
+    width: 100%;
+    background: url("../../assets/flower.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: border-box;
 }
 </style>
