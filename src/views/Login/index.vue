@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group" :class="this.form.pass.error">
                     <label class="form-label">密码</label>
-                    <input class="form-input" type="text" placeholder="密码" v-model="form.pass.content">
+                    <input class="form-input" type="password" placeholder="密码" v-model="form.pass.content">
                     <p class="form-input-hint">{{form.pass.hint}}</p>
                 </div>
                 <button class="btn btn-primary" @click="submit">登录</button>
@@ -27,13 +27,13 @@
                 </div>
                 <div class="form-group" :class="this.form.pass.error">
                     <label class="form-label">密码</label>
-                    <input class="form-input" type="text" placeholder="密码" v-model="form.pass.content">
+                    <input class="form-input" type="password" placeholder="密码" v-model="form.pass.content">
                     <p class="form-input-hint">{{form.pass.hint}}</p>
                 </div>
-                <div class="form-group" :class="this.form.pass.error">
+                <div class="form-group" :class="this.form.pass2.error">
                     <label class="form-label">再次输入密码</label>
-                    <input class="form-input" type="text" placeholder="密码" v-model="form.pass.content">
-                    <p class="form-input-hint">{{form.pass.hint}}</p>
+                    <input class="form-input" type="password" placeholder="密码" v-model="form.pass2.content">
+                    <p class="form-input-hint">{{form.pass2.hint}}</p>
                 </div>
                 <button class="btn btn-primary" @click="submit">登录</button>
             </form>
@@ -54,7 +54,8 @@ export default {
             ], 
             form: {
                 mail: {content: '', error: '', hint: ''},
-                pass: {content: '', error: '', hint: ''}
+                pass: {content: '', error: '', hint: ''},
+                pass2: {content: '', error: '', hint: ''}
             }
         }  
     },
@@ -66,14 +67,19 @@ export default {
             data.current = true;
         },
         submit() {
+            // 定义判定变量
+            let isSuccs = 0;
+
             // valide mail
             let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
             if (!this.form.mail.content) {
                 this.form.mail.hint = '邮箱不能为空!';
                 this.form.mail.error = 'has-error';
+                isSuccs = -1;
             } else if (!reg.test(this.form.mail.content)) {
                 this.form.mail.hint = '请输入正确的邮箱!';
                 this.form.mail.error = 'has-error';
+                isSuccs = -1;
             } else {
                 this.form.mail.hint = '邮箱正确！';
                 this.form.mail.error = 'has-success';
@@ -84,15 +90,33 @@ export default {
             if (!this.form.pass.content) {
                 this.form.pass.hint = '密码不能为空!';
                 this.form.pass.error = 'has-error';
+                isSuccs = -1;
             } else if (!reg2.test(this.form.pass.content)) {
                 this.form.pass.hint = '请输入8-20位数字+字母的密码！';
                 this.form.pass.error = 'has-error';
+                isSuccs = -1;
             } else {
                 this.form.pass.hint = '密码正确！';
                 this.form.pass.error = 'has-success';
             }
 
-            Login()
+            // 注册专用
+            if (this.menuTab[1].current) {
+                // valide pass2
+                if (this.form.pass2.content != this.form.pass.content) {
+                    this.form.pass2.hint = '密码不一致!';
+                    this.form.pass2.error = 'has-error';
+                    isSuccs = -1;
+                } else {
+                    this.form.pass2.hint = '密码一致！';
+                    this.form.pass2.error = 'has-success';
+                }
+            }
+
+            if (isSuccs == 0) {
+                // 判定成功
+                Login()
+            }
         }
     }
 }
