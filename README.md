@@ -1,4 +1,4 @@
-# vue-admin
+# Cupids-Web-2020
 
 ## Project setup
 ```
