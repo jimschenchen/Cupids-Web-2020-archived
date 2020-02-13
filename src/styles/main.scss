@@ -1,5 +1,4 @@
 $primary-color: #eb6d82;
-$gray-color: #aaaaaa;
 $dark-color: #fff;
 $light-color: #000;
 
@@ -16,8 +15,13 @@ div{
 .container{
     width: 330px;
     margin: auto;
+    min-height: 100%;
 }
 
 .btn, .form-input{
-    border-radius: 0px;
+    border-radius: 7px;
+    border-width: 1.5px;
+    padding: 8px;
+    height: auto;
+    font-weight: 600;
 }

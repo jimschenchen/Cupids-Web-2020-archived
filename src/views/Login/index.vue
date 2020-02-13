@@ -134,7 +134,6 @@ export default {
 
 .bg{
     position: fixed;
-    background: #000;
     top: 0px;
     left: 0px;
     height: 100%;
@@ -169,7 +168,7 @@ export default {
 }
 
 .flower{
-    height: 200px;
+    height: 250px;
     width: 100%;
     background: url("../../assets/flower.jpg");
     background-size: contain;
